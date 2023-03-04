@@ -9,6 +9,9 @@ and to write a parser for it, but it should also be useable as a general purpose
 - Able to express most simple objects that a programming language may create
 - Human write- and readable
 
+## Specifications
+
+
 ## Example
 ```
 t name Player
@@ -21,8 +24,11 @@ o position
  
  
  ## Parsers
- 
+ ### Beeflang
+ [Gon-Beef](https://github.com/Booklordofthedings/gon-beef)
  
  ## Contributing
- If you want to suggest features for future versions you can open a Issue and if you
- have written a parser, you may send a pull request for me to add it to the list
+There are about 3 ways you can contribute to gon.
+1. Make projects that uses gon
+2. Write your own parser and add it to the readme via a pull request
+3. Suggestions for additons to the notation can be made via the issue tab
