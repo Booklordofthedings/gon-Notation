@@ -21,4 +21,16 @@
 20. The token values that have a meaning to the parser should start uppercase
 21. Tokens from the official standart should also be 1 character
 22. Tokens added as an optional feature should not be 1 character long as to not conflict with eventual future tokens
-23. The simplest token is the "V" this indicates a value
+23. The simplest token is the "V" this indicates a value token, and indicates that the following tokens should be parsed and stored normally
+24. Another token type is "M", this stands for meta and indicates that the following tokens contain meta information about the file or the information contained in the file
+25. Metadata should be kept as short as possible
+26. One possible use for a metdata entry could be the gon version the file was created on
+27. Metadata does not support the full range of tokens available in normal Value entries
+28. If the entry token is not a valid known token it will be considered a value token instead and the entry token will be considered the second token instead
+29. This allows normal data to just remove the "V" while still working fine to reduce complexity while writing
+30. "-" is a token indicating that the following entry is a member of an object
+31. The object that is targeted by "-" is the last declared object in the file
+32. "-" can be repeated with a space (U+0020) inbetween to indicate on which layer they are on
+33. The targetting just works recursivly by selecting the last declared object and repeating that for as many "-" there are
+34. The Parser should atleast support 500 layers of depth, and can support support more
+35. As a result of the previous rule, gon objects should try not to have more than 500 layers in order to avoid incompatibilities
