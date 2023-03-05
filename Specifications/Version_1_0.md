@@ -34,4 +34,28 @@
 33. The targetting just works recursivly by selecting the last declared object and repeating that for as many "-" there are
 34. The Parser should atleast support 500 layers of depth, and can support support more
 35. As a result of the previous rule, gon objects should try not to have more than 500 layers in order to avoid incompatibilities
-36. The second token in a line is the type token and indicates the type of entry that the line is, this was done to allow parsers to not have to figure out types from other indicators
+36. "#" is another entry token and denotes a comment, which will simply cause the rest of the line to not be evaluated
+37. The second token in a line is the type token and indicates the type of entry that the line is, this was done to allow parsers to not have to figure out types from other indicators
+38. Gon type tokens should start with a lowercase letter in order to stop potential overlaps with Entry tokens from happening
+39. All 2 character type tokens are reserved for the official types and should not be used in custom type tokens
+40. There are several different type tokens available:
+41. "n" indicates a 32 bit floating point number (IEEE-754)
+42. "t" indicates a String of text (preferably utf8)
+43. "b" indicates a boolean with 2 values (true, false)
+44. "i" indicates a signed 32 bit integer
+45. "bi" indicates a signed "big" integer with 64 bits
+46. "bn" indicates a "big" floating point number with 64 bits (IEEE-754)
+47. "d" indicates raw data, parsers can turn this into a type as they see fit for raw data
+48. This could for example just be a string or a void* or a uint8 arrray, whatever the language works best with
+49. "c" indicates a custom type which will be further specified by the file afterwards
+50. "o" indicates an object that can contain further entries
+51. The next token is usually the name of the entry as a utf8 string
+52.  If the type was specified to be "c" the next token is considered the typename in utf8 instead
+53.  For custom type entries the next token will be considered the name instead
+54.  If the type was an object any further tokens in the line will not be evaluated as only the name of the object matters
+55.  If the type of the object is "n, i, b, bn, or bi" the next token will be the value of the entry and further values wont be evaluated
+56.  If the type is "t, d or c" All of the other tokens in the line including the seperator character (space, U+0020) will be considered the value
+57.  When a line does not have enough tokens to parse correctly it will simply be ignored and the parser can record an error
+58.  The parsed object should allow several ways of acessing entries
+59.  Acess via an index should be possible where the index corresponds to the n-th object that was parsed in the current layer starting at the 0th
+60.  Acess should also be available via a name string
