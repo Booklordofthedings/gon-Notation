@@ -59,3 +59,8 @@
 58.  The parsed object should allow several ways of acessing entries
 59.  Acess via an index should be possible where the index corresponds to the n-th object that was parsed in the current layer starting at the 0th
 60.  Acess should also be available via a name string
+61.  A gon entry after being parsed should contain several values
+62.  The name of the entry
+63.  Its type
+64.  Its type as a string, in the case of a custom type entry this should contain the typename token
+65.  The parsed value
