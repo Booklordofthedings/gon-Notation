@@ -10,7 +10,7 @@ and to write a parser for it, but it should also be useable as a general purpose
 - Human write- and readable
 
 ## Specifications
-
+[Version 1.0](https://github.com/Booklordofthedings/gon-Notation/blob/main/Specifications/Version_1_0.md)
 
 ## Example
 ```
