@@ -34,3 +34,4 @@
 33. The targetting just works recursivly by selecting the last declared object and repeating that for as many "-" there are
 34. The Parser should atleast support 500 layers of depth, and can support support more
 35. As a result of the previous rule, gon objects should try not to have more than 500 layers in order to avoid incompatibilities
+36. The second token in a line is the type token and indicates the type of entry that the line is, this was done to allow parsers to not have to figure out types from other indicators
