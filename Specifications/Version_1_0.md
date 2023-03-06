@@ -43,25 +43,21 @@
 - This allows the author of the file to **ommit the 'V' and it will still be parsed** as if it existed.
 - **'-' indicates membership of an object**.
 - The entry parsed after **this token is a member of the last declared object entry**.
-- 
+- **This token may be repeated (with a space inbetween) to go down further layers**, always targetting the last declared object at that specific layer.
+- The **minimum depth a Parser should support is 1000**.
+- Having more layers should be avoided
+- If the **depth is invalid** or a the **layer does not actually have an object the entire line will be considered invalid** and will be ignored (Parsers may still log an error though).
+- '#' is an entry token to denote a comment and will simply just cause the parser to ignore the rest of the line.
 
-
-
-34. "-" is a token indicating that the following entry is a member of an object
-35. The object that is targeted by "-" is the last declared object in the file
-36. "-" can be repeated with a space (U+0020) inbetween to indicate on which layer they are on
-37. The targetting just works recursivly by selecting the last declared object and repeating that for as many "-" there are
-38. The Parser should atleast support 500 layers of depth, and can support support more
-39. As a result of the previous rule, gon objects should try not to have more than 500 layers in order to avoid incompatibilities
-40. "#" is another entry token and denotes a comment, which will simply cause the rest of the line to not be evaluated
-41. The second token in a line is the type token and indicates the type of entry that the line is, this was done to allow parsers to not have to figure out types from other indicators
-42. Gon type tokens should start with a lowercase letter in order to stop potential overlaps with Entry tokens from happening
-43. All 2 character type tokens are reserved for the official types and should not be used in custom type tokens
-44. There are several different type tokens available:
-45. "n" indicates a 32 bit floating point number (IEEE-754)
-46. "t" indicates a String of text (preferably utf8)
-47. "b" indicates a boolean with 2 values (true, false)
-48. "i" indicates a signed 32 bit integer
+## Type Token
+- The next token is the **Type Token** unless the line is a comment.
+- The token, as you would expect denotes the **type of the actual entry**.
+- These **start with a lowercase letter** to avoid overlap.
+- Optional Type tokens should **use atleast 3 characters to avoid overlap**.
+- **'n'** indicates a **32 bit floating point number** (IEEE-754).
+- **'t'** indicates a **String of text** (utf8).
+- **'b'** indicates a **boolean with 2 values** (true, false).
+- **'i'** indicates a **signed 32 bit integer**.
 49. "bi" indicates a signed "big" integer with 64 bits
 50. "bn" indicates a "big" floating point number with 64 bits (IEEE-754)
 51. "d" indicates raw data, parsers can turn this into a type as they see fit for raw data
