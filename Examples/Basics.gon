@@ -1,0 +1,16 @@
+# This file has all basic features a gon file may have that would parse correctly
+
+# Metaobjects
+M n gon_version_major 1
+M n gon_version_minor 0
+M t gon_style Default
+
+# Actual data
+V t Player_Name Book
+i Player_Number 12
+c color Player_Color {12,255,255}
+o Player_Position
+  - n X 1.0
+  - n Y 20
+  - n Z 120.0
+b Is_Player_Airborn true
