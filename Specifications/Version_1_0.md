@@ -63,27 +63,17 @@
 - **'d'** indicates raw data, parsers can a type which they see fit for this purpose (string).
 - **'c'** indicates a custom type, **the typename is specified in the next token**.
 - **'o'** indicates an object that can contain further entries
-55. The next token is usually the name of the entry as a utf8 string
-56.  If the type was specified to be "c" the next token is considered the typename in utf8 instead
-57.  For custom type entries the next token will be considered the name instead
-58.  If the type was an object any further tokens in the line will not be evaluated as only the name of the object matters
-59.  If the type of the object is "n, i, b, bn, or bi" the next token will be the value of the entry and further values wont be evaluated
-60.  If the type is "t, d or c" All of the other tokens in the line including the seperator character (space, U+0020) will be considered the value
-61.  When a line does not have enough tokens to parse correctly it will simply be ignored and the parser can record an error
-62.  The parsed object should allow several ways of acessing entries
-63.  Acess via an index should be possible where the index corresponds to the n-th object that was parsed in the current layer starting at the 0th
-64.  Acess should also be available via a name string
-65.  Due to this names on a layer also have to be unique and cant repeat
-66.  A gon entry after being parsed should contain several values
-67.  The name of the entry
-68.  Its type
-69.  Its type as a string, in the case of a custom type entry this should contain the typename token
-70.  The parsed value itself
-71.  As a result of this standart the base notation does not support objects in the meta file, however due to the way the notation is designed a parser may implement members of meta object in the following way
-72.  Use "-" as normal do indicate depth and then use a "M" at the end to indicate that is supposed to go into the meta file
-73.  This way a normal parse will simply just ignore the object as "M" is not a valid type indicator
-74.  This is also ambigous since it could aswell mean to target a normal object and add the entry as a meta to that object
-75.  This and it being harder to parser are the reason why it is not available in the standard
-76.  Some people may miss arrays, which dont fully work, as every gon entry has to have a name
-77.  Simply using its index as a name can work here, and the person reading the parsed object can just loop through it like they would with an array
-78.  A similar way could work with multiline string which could just be objects that have each line individually saved
+## Name Token
+- The token after parsing the type is called **"Name Token"**.
+- This indicates the **name of the entry**.
+- Keep in mind that **only one entry of a given name may exist** on one specific layer.
+- **Names can be dublicate between meta and value objects though**.
+
+## Value Token
+- Depending on wether the type of object supports it, **either the next token will be the value** or **all following tokens including the seperation character will be the value**.
+- **Objects do not have any value token**.
+- The parser should support the simplest way of parsing the input string token into the given datatype.
+
+## Other
+- The parsed object should be **acessible via both index and name**.
+- Gon Entries need to store all of their data (Name, Value, Type, Typename)
