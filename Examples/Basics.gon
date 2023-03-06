@@ -9,7 +9,9 @@ M t gon_style Default
 V t Player_Name Book
 i Player_Number 12
 c color Player_Color {12,255,255}
-d SaveGame 31 73 76 64 74 31 38 73 76 64 74 31 38 73 76 64 74 33 34 30 39 33 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 32 73 76 64 74 32 73 76 64 74 32 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 31 73 76 64 74 32 73 76 64 74 31 73 76
+# if the data to be saved is a bit more unwieldy as a String it can be converted to hex representation or similar to make it work.
+# Beef also has a String.Wrap type function that removes control characters, which could work
+d SaveGame 1svdt18svdt18svdt34093svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt2svdt2svdt2svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt1svdt2svdt1sv
 o Player_Position
   - n X 1.0
   - n Y 20
