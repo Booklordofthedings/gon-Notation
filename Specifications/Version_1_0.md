@@ -58,12 +58,11 @@
 - **'t'** indicates a **String of text** (utf8).
 - **'b'** indicates a **boolean with 2 values** (true, false).
 - **'i'** indicates a **signed 32 bit integer**.
-49. "bi" indicates a signed "big" integer with 64 bits
-50. "bn" indicates a "big" floating point number with 64 bits (IEEE-754)
-51. "d" indicates raw data, parsers can turn this into a type as they see fit for raw data
-52. This could for example just be a string or a void* or a uint8 arrray, whatever the language works best with
-53. "c" indicates a custom type which will be further specified by the file afterwards
-54. "o" indicates an object that can contain further entries
+- **'bi'** indicates a **signed integer with 64 bits**.
+- **'bn'** indicates a **floating point number with 64 bits (IEEE-754)**.
+- **'d'** indicates raw data, parsers can a type which they see fit for this purpose (string).
+- **'c'** indicates a custom type, **the typename is specified in the next token**.
+- **'o'** indicates an object that can contain further entries
 55. The next token is usually the name of the entry as a utf8 string
 56.  If the type was specified to be "c" the next token is considered the typename in utf8 instead
 57.  For custom type entries the next token will be considered the name instead
