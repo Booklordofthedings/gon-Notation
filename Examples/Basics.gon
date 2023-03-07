@@ -1,4 +1,5 @@
 # This file has all basic features a gon file may have that would parse correctly
+# We dont do big int or big num, as its trivial
 
 # Metaobjects
 M n gon_version_major 1
@@ -17,3 +18,9 @@ o Player_Position
   - n Y 20
   - n Z 120.0
 b Is_Player_Airborn true
+
+o Inventory
+	- o OnBody
+# items could go here
+	- o Bag
+# items could go here

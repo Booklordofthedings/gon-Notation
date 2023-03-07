@@ -1,0 +1,31 @@
+# providing all ways of parsing numbers
+
+# All floats
+o Number
+ - n NoFloatingPoint 1
+ - n SimpleFloatingPoint 1.1
+ - n ZeroAfterFloatingPoint 1.0
+ - n LeadingZero 01.0
+ - n Infinity Infinity
+
+# All integers 
+o Integer
+ - i Number 1
+ - i NegativeNumber -1
+ - i NegativeMinusZero -0
+
+# All doubles
+o BigNumber
+ - n NoFloatingPoint 1
+ - n SimpleFloatingPoint 1.1
+ - n ZeroAfterFloatingPoint 1.0
+ - n LeadingZero 01.0
+ - n Infinity Infinity
+ - n LongNumber 1232145454323324324
+ 
+ # All integers 
+o BigInteger
+ - i Number 1
+ - i NegativeNumber -1
+ - i NegativeMinusZero -0
+ - n LongNumber 1232145454323324324324334325445452328543543543

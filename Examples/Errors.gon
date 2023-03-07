@@ -1,0 +1,13 @@
+# Every single line in here should error
+
+# Oh hey, no content
+n 
+# Trying to insert into nothing
+- n Number 1
+# Some obvious parser errors
+b Bool flalse
+n Number foinvnfoiv
+this is an invalid type
+o Object
+# This time going even deeper than previously
+- - n test
